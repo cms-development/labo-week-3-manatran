@@ -1,0 +1,10 @@
+<div *ngIf="recipe">
+  <button (click)="goBack()">go back</button>
+  <h2>{{recipe.cuisine | uppercase}} Details</h2>
+  <div><span>id: </span>{{recipe.id}}</div>
+  <div>
+    <label>cuisine:
+      <input [(ngModel)]="recipe.cuisine" placeholder="cuisine">
+    </label>
+  </div>
+</div>
