@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Recipe } from './recipe';
 import { RECIPES } from './mock-recipes';
@@ -10,7 +11,7 @@ import { RECIPES } from './mock-recipes';
 })
 
 export class RecipeService {
-
+  private recipesUrl = ''
   getRecipes(): Observable<Recipe[]> {
     this.messageService.add('HeroService: fetched heroes');
     return of(RECIPES);
@@ -21,5 +22,5 @@ export class RecipeService {
     return of(RECIPES.find(recipe => recipe.id === id));
   }
 
-  constructor(private messageService: MessageService) { }
+  constructor(private http: HttpClient, private messageService: MessageService) { }
 }
